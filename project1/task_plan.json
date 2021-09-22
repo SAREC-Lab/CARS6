@@ -1,0 +1,34 @@
+{
+  "states": [
+    {
+      "name": "Forward",
+      "attributes": {
+        "distance": 5.0
+      }
+    },
+    {
+      "name": "Backward",
+      "attributes": {
+        "distance": 6.3
+      }
+    },
+    {
+      "name": "TurnL"
+    },
+    {
+      "name": "Cleft",
+      "attributes": {
+        "radius": 0.8
+      }
+    },
+    {
+      "name": "TurnR"
+    },
+    {
+      "name": "Cright"
+    },
+    {
+      "name": "ThreePoint"
+    }
+  ]
+}
