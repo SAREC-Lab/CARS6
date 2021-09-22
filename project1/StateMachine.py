@@ -4,11 +4,14 @@ import rospy
 import smach
 import time
 from geometry_msgs.msg import Twist
-# TO DO: import each state and command 
-
-
-
-
+# import state commands from folder
+from states.forward import Forward
+from states.backward import Backward
+for states.circleL import CircleL
+for states.circleR import CircleR
+for states.turnL import TurnL
+for states.turnR import TurnR
+for states.threepoint import ThreePoint
 
 
 # define state Stop
