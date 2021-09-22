@@ -5,7 +5,7 @@ import smach
 import time
 from geometry_msgs.msg import Twist
 
-# define state line
+# define state forward
 class Forward(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['do_plan'])
@@ -13,7 +13,7 @@ class Forward(smach.State):
 
     def execute(self, userdata):
 
-        velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+        velocity_publisher = rospy.Publisher(', Twist, queue_size=10)
 
         # Set Twist to twist right
         vel_msg = Twist()
