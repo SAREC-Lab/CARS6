@@ -18,7 +18,7 @@ class Stop(smach.State):
         self.counter = 0
 
     def execute(self, userdata):
-	      time.sleep(1)
+	time.sleep(1)
         return 'do_exit'
       
 # Main
@@ -32,20 +32,23 @@ def main():
     # Open the container
     with sm:
         # Add states to the container
+	smach.StateMachine.add('Plan', Plan(), 
+                               transitions={'do_forward':'Forward', 'do_backward': 'Backward', 'do_circleL':'CircleL', 'do_circleR': 'CirlceR', 
+					    'do_turnL':'TurnL', 'do_turnR':'TurnR', 'do_threepoint': 'ThreePoint', 'do_exit':'Stop'})
         smach.StateMachine.add('Forward', Forward(), 
                                transitions={'do_plan':'Plan'})
         smach.StateMachine.add('Backward', Backward(), 
                                 transitions={'do_plan':'Plan'})
-        smach.StateMachine.add('Cleft', Cleft(), 
+        smach.StateMachine.add('CircleL', CircleL(), 
                                transitions={'do_plan':'Plan'})
-        smach.StateMachine.add('Cright', Cright(), 
-                               ttransitions={'do_plan':'Plan'})
+        smach.StateMachine.add('CircleR', CircleR(), 
+                               transitions={'do_plan':'Plan'})
         smach.StateMachine.add('TurnL', TurnL(), 
-                               ttransitions={'do_plan':'Plan'})
+                               transitions={'do_plan':'Plan'})
         smach.StateMachine.add('TurnR', TurnR(), 
-                               ttransitions={'do_plan':'Plan'}) 
+                               transitions={'do_plan':'Plan'}) 
         smach.StateMachine.add('ThreePoint', ThreePoint(), 
-                               ttransitions={'do_plan':'Plan'})
+                               transitions={'do_plan':'Plan'})
         smach.StateMachine.add('Stop', Stop(), 
                                transitions={'do_exit':'do_exit'})
 
