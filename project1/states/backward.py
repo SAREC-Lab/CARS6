@@ -23,7 +23,7 @@ class Forward(smach.State):
        # set initial state position
         send_init_pos(state_name, self.pub_init_pos)
 
-        velocity = 2.0  # default velocity
+        velocity = -2.0  # default velocity
 
         dur = rospy.Duration(10)
         rate = rospy.Rate(10)
