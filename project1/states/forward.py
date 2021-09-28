@@ -15,16 +15,6 @@ class Forward(smach.State):
 
         velocity_publisher = rospy.Publisher(', Twist, queue_size=10)
 
-        # Set Twist to twist right
-        vel_msg = Twist()
-        vel_msg.linear.x=2
-        vel_msg.linear.y = 0
-        vel_msg.linear.z = 0
-        vel_msg.angular.x = 0
-        vel_msg.angular.y = 0
-        vel_msg.angular.z = 0
-
-        # Setup time to twist
         t0=rospy.Time.now().to_sec()
         t1=rospy.Time.now().to_sec()
 
@@ -37,4 +27,4 @@ class Forward(smach.State):
         vel_msg.linear.x = 0
         #Force the robot to stop
         velocity_publisher.publish(vel_msg)
-        return 'do_stop'
+        return 'do_plan'
