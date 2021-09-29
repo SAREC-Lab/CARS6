@@ -5,7 +5,7 @@ https://trello.com/b/RqyrWWEP/assignment-4
 
 **Task Plan Specification**
 
-For our Task Plan specifications we plan to use a JSON file and define the plan using a data dictionary. 
+For our Task Plan specifications we are going to use a JSON file and define the plan using a data dictionary. 
 We decided to use a data dictionary for our DSL for the project because of its versatility and usability. 
 Applying new attributes to each state is easily accomplished for more complex paths. 
 Additionally, formatting the JSON file in this manner makes it easier to parse in the directions correctly and make sure that each attribute is correctly defined.
