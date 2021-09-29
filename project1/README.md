@@ -23,20 +23,20 @@ R1 - The UGV moves the directed amount of feet within one foot.
 
 Trace Matrix 1:
 
-R1, D1
+	R1, D1
 
-R1, D2
+	R1, D2
 
-R1, D3
+	R1, D3
 
 
 Trace Matrix 2: 
 
-D1, plan_parser.py 
+	D1, plan_parser.py 
 
-D2,  Statemachine.py, forward.py, backward.py, turnL.py, turnR.py, circleL.py, circleR.py, plan.py, threepoint.py
+	D2,  Statemachine.py, forward.py, backward.py, turnL.py, turnR.py, circleL.py, circleR.py, plan.py, threepoint.py
 
-D3, stop.py
+	D3, stop.py
 
 **Testing Strategy** 
 
