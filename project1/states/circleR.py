@@ -4,6 +4,7 @@
 import rospy
 import smach
 import time
+import math
 from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 from send_init_pos import send_init_pos
 
@@ -27,16 +28,18 @@ class CircleR(smach.State):
         rospy.loginfo("Running {} state".format(state_name))
 
         # set initial state position
-        send_init_pos(state_name, self.pub_init_pos, theta=radius)
+        send_init_pos(state_name, self.pub_init_pos)
 
+        l = 0.785
+        delta = -1 * math.asin(l / (2 * radius))
         velocity = 2.0  # default velocity
-        delta = -0.09
 
-        dur = rospy.Duration(10)
+        c = 2 * math.pi * radius
+        dur = rospy.Duration((c / velocity))
         rate = rospy.Rate(10)
-        start = rospy.Time.now()
 
         drive = AckermannDrive(steering_angle=delta, speed=velocity)
+        start = rospy.Time.now()
         while rospy.Time.now() - start < dur:
             self.pub_controls.publish(AckermannDriveStamped(drive=drive))
             rate.sleep()

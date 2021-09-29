@@ -29,8 +29,7 @@ def run_state_machine(pub_init_pose, pub_controls, plan):
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
         smach.StateMachine.add("Stop", Stop(),
-                               transitions={"do_exit": "do_exit"},
-                               remapping={"plan": "plan", "plan_counter": "plan_counter"})
+                               transitions={"do_exit": "do_exit"})
 
     # execute SMACH plan
     outcome = sm.execute()

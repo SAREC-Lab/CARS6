@@ -2,15 +2,10 @@
 
 # Import libraries
 import rospy
-from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
+from ackermann_msgs.msg import AckermannDriveStamped
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from plan_parser import parse_plan
 from state_machine import run_state_machine
-
-
-def run_plan(pub_init_pose, pub_controls, plan):
-    print("running plan...")
-    run_state_machine(pub_init_pose, pub_controls, plan)
 
 
 if __name__ == '__main__':
@@ -29,4 +24,4 @@ if __name__ == '__main__':
     plan = parse_plan(plan_file)
 
     rospy.sleep(1.0)
-    run_plan(pub_init_pose, pub_controls, plan)
+    run_state_machine(pub_init_pose, pub_controls, plan)
