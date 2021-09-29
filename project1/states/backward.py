@@ -3,10 +3,11 @@
 import rospy
 import smach
 import time
-from geometry_msgs.msg import Twist
+from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
+from send_init_pos import send_init_pos
 
 # define state forward
-class Forward(smach.State):
+class Backward(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['do_plan'])
         self.counter = 0 
