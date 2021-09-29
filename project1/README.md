@@ -14,8 +14,8 @@ Additionally, formatting the JSON file in this manner makes it easier to parse i
 
 R1 - The UGV moves the directed amount of feet within one foot.
 
-	D1- The UGV loads in data from any correctly formatted task plan from the JSON file in the order 
-given.
+	D1- The UGV loads in data from any correctly formatted task plan from the JSON file in the order given.
+	
 	D2- The UGV successfully returns to plan state after performing each task plan element.
 	
 	D3- The UGV shall complete a full 8 part task plan and then stop. 
