@@ -1,4 +1,5 @@
 **Task Plan Specification**
+
 For our Task Plan specifications we plan to use a JSON file and define the plan using a data dictionary. 
 We decided to use a data dictionary for our DSL for the project because of its versatility and usability. 
 Applying new attributes to each state is easily accomplished for more complex paths. 
@@ -26,6 +27,8 @@ D3, stop.py
 
 **Testing Strategy** 
 
+In order to test our code and verify that it is meeting the design requirements and definitions. After complining the code and making sure each state was properly connected to one another we began running the task plans in the simulator. This allowed us to visualize what we hope our physical car will be able to accomplish. There was some difficultly in keeping the code consistent between group members, but these issues were resolved quickly. 
+After using the simulator outside of class, we needed to make sure these results would be achieved using the actual car. To continue to test the robustness of our code, we created an additional four task plans that used a variety of combinations of states. These would be our test cases in both the simulator and in person. 
 
 
 
