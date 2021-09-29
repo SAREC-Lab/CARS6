@@ -11,9 +11,11 @@ class TurnL(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['do_plan'])
         self.counter = 0
+	
+	self.pub_controls = pub_controls
 
     def execute(self, userdata):
-        rospy.loginfo('The turtle is turning left')
+        rospy.loginfo("Running {} state".format(state_name))
 	#time.sleep(2)
 	v, delta = float(1), float(0.9)
 	dur = rospy.Duration(1.0)
