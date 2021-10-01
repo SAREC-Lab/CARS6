@@ -9,7 +9,8 @@ from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 # define state turnL - turn left
 class TurnL(smach.State):
     def __init__(self, pub_controls):
-        smach.State.__init__(self, outcomes=['do_plan'])
+        smach.State.__init__(self, outcomes=['do_plan'],
+			    input_keys=['curr_state'])
         self.counter = 0
 	
 	self.pub_controls = pub_controls
