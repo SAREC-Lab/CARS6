@@ -15,6 +15,8 @@ class TurnL(smach.State):
 	self.pub_controls = pub_controls
 
     def execute(self, userdata):
+	# get state attributes
+        state_name = userdata.curr_state["name"]
         rospy.loginfo("Running {} state".format(state_name))
 	#time.sleep(2)
 	v, delta = float(1), float(0.9)
