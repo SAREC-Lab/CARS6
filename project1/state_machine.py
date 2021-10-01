@@ -45,7 +45,7 @@ def run_state_machine(pub_init_pos, pub_controls, plan):
         smach.StateMachine.add("Backward", Backward(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
-        smach.StateMachine.add("Stop", Stop(),
+        smach.StateMachine.add("Stop", Stop(pub_controls),
                                transitions={"do_exit": "do_exit"})
 
     # execute SMACH plan
