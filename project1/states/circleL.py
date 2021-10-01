@@ -6,18 +6,14 @@ import smach
 import time
 import math
 from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
-from send_init_pos import send_init_pos
 
 # Define circle left state
-
-
 class CircleL(smach.State):
-    def __init__(self, pub_init_pos, pub_controls):
+    def __init__(self, pub_controls):
         smach.State.__init__(self,
                              outcomes=["do_plan"],
                              input_keys=["curr_state"])
         self.counter = 0
-        self.pub_init_pos = pub_init_pos
         self.pub_controls = pub_controls
 
     def execute(self, userdata):
