@@ -4,14 +4,13 @@ import rospy
 import smach
 import time
 from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
-from send_init_pos import send_init_pos
 
 # define state forward
 class Forward(smach.State):
-    def __init__(self, pub_init_pos, pub_controls):
-        smach.State.__init__(self, outcomes=['do_plan'], input_keys=['curr_state'])
+    def __init__(self, pub_controls):
+        smach.State.__init__(self, outcomes=['do_plan'],
+                             input_keys=['curr_state'])
         self.counter = 0 
-        self.pub_init_pos = pub_init_pos
         self.pub_controls = pub_controls
 
     def execute(self, userdata):
@@ -21,9 +20,6 @@ class Forward(smach.State):
 
         rospy.loginfo("Running {} state".format(state_name))
         
-        # set initial state position
-        send_init_pos(state_name, self.pub_init_pos)
-
         velocity = 2.0  # default velocity
         delta = 0.0 # not turning so angle = 0
 
