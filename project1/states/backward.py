@@ -4,7 +4,6 @@ import rospy
 import smach
 import time
 from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
-from send_init_pos import send_init_pos
 
 # define state forward
 class Backward(smach.State):
