@@ -25,6 +25,7 @@ class Backward(smach.State):
         send_init_pos(state_name, self.pub_init_pos)
 
         velocity = -2.0  # default velocity
+        delta = 0.0 # not turning so angle = 0
 
         dur = rospy.Duration(distance / (velocity * -1))
         rate = rospy.Rate(10)
