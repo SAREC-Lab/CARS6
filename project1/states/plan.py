@@ -10,7 +10,7 @@ import time
 
 class Plan(smach.State):
     def __init__(self):
-        smach.State.__init__(self, outcomes=["do_circleL", "do_circleR", "do_turnL", "do_exit"],
+        smach.State.__init__(self, outcomes=["do_circleL", "do_circleR", "do_turnL", "do_forward", "do_backward", "do_exit"],
                              input_keys=["plan", "curr_state"],
                              output_keys=["curr_state"])
         self.counter = 0
