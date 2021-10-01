@@ -4,7 +4,6 @@
 import rospy
 import smach
 import time
-from send_init_pos import send_init_pos
 from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 
 # Define the stop state
@@ -17,9 +16,6 @@ class Stop(smach.State):
 
     def execute(self, userdata):
         rospy.loginfo("Running Stop state")
-
-        # set initial state position
-        send_init_pos('Stop', self.pub_init_pos)
 
         delta = 0
         velocity = 0
