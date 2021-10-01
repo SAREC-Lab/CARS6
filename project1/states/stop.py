@@ -10,9 +10,11 @@ from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 
 
 class Stop(smach.State):
-    def __init__(self):
+    def __init__(self,  pub_controls):
         smach.State.__init__(self, outcomes=["do_exit"])
         self.counter = 0
+        
+        self.pub_controls = pub_controls
 
     def execute(self, userdata):
         rospy.loginfo("Running Stop state")
