@@ -23,9 +23,6 @@ class CircleL(smach.State):
 
         rospy.loginfo("Running {} state".format(state_name))
 
-        # set initial state position
-        send_init_pos(state_name, self.pub_init_pos)
-
         l = 0.785
         delta = math.asin(l / (2 * radius))
         velocity = 2.0  # default velocity
