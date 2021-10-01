@@ -29,9 +29,6 @@
       "attributes": {
         "radius": 0.8
       }
-    },
-    {
-      "name": "do_threepoint"
     }
   ]
 }
