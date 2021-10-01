@@ -27,10 +27,10 @@ def run_state_machine(pub_init_pos, pub_controls, plan):
                                    "do_exit": "Stop", "do_circleL": "CircleL", "do_circleR": "CircleR",
                                    "do_turnL": "TurnL", "do_turnR": "TurnR", "do_forward": "Forward", "do_backward": "Backward"},
                                remapping={"plan": "plan", "curr_state": "curr_state", "plan_length": "plan_length"})
-        smach.StateMachine.add("CircleL", CircleL(pub_init_pos, pub_controls),
+        smach.StateMachine.add("CircleL", CircleL( pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
-        smach.StateMachine.add("CircleR", CircleR(pub_init_pos, pub_controls),
+        smach.StateMachine.add("CircleR", CircleR(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
         smach.StateMachine.add("TurnL", TurnL(pub_controls),
@@ -39,10 +39,10 @@ def run_state_machine(pub_init_pos, pub_controls, plan):
         smach.StateMachine.add("TurnR", TurnR(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
-        smach.StateMachine.add("Forward", Forward(pub_init_pos, pub_controls),
+        smach.StateMachine.add("Forward", Forward(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
-        smach.StateMachine.add("Backward", Backward(pub_init_pos, pub_controls),
+        smach.StateMachine.add("Backward", Backward(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
         smach.StateMachine.add("Stop", Stop(),
