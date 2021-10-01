@@ -4,6 +4,7 @@ import rospy
 import smach
 import time
 from geometry_msgs.msg import Twist
+from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 
 # define state turnL - turn left
 class TurnR(smach.State):
@@ -15,7 +16,10 @@ class TurnR(smach.State):
 
 
     def execute(self, userdata):
+	# get state attributes
+        state_name = userdata.curr_state["name"]
         rospy.loginfo("Running {} state".format(state_name))
+	
 	v, delta = float(1), float(-0.9) # negative angle turns right
 	dur = rospy.Duration(1.0)
     	rate = rospy.Rate(10)
