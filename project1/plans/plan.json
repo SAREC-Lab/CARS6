@@ -1,15 +1,18 @@
 {
   "states": [
     {
+      "name": "do_threepoint"
+    },
+    {
       "name": "do_forward",
       "attributes": {
-        "distance": 5.0
+        "distance": 3.3
       }
     },
     {
       "name": "do_backward",
       "attributes": {
-        "distance": 6.3
+        "distance": 4.1
       }
     },
     {
