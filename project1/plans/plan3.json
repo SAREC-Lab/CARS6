@@ -1,0 +1,46 @@
+{
+  "states": [
+    {
+      "name": "do_circleR",
+      "attributes": {
+        "radius": 0.73
+      }
+    },
+    {
+      "name": "do_forward",
+      "attributes": {
+        "distance": 8.0
+      }
+    },
+    {
+      "name": "do_backward",
+      "attributes": {
+        "distance": 4.0
+    },
+    {
+      "name": "do_threepoint"
+    },
+    },
+    {
+      "name": "do_forward",
+      "attributes": {
+        "distance": 2.0
+      }
+    },
+    {
+      "name": "do_circleL",
+      "attributes": {
+        "radius": 3.1
+      }
+    },
+    {
+      "name": "do_turnR"
+    },
+    {
+      "name": "do_turnL"
+    },
+    {
+      "name": "do_turnR"
+    }
+  ]
+}
