@@ -20,7 +20,7 @@
     {
       "name": "do_threepoint"
     },
-    },
+  
     {
       "name": "do_circleL",
       "attributes": {
@@ -29,7 +29,7 @@
     },
     {
       "name": "do_threepoint",
-      }
+      
     },
     {
       "name": "do_backward",
