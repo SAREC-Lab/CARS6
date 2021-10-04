@@ -31,11 +31,13 @@
       "name": "do_circleR",
       "attributes": {
         "radius": 1.2
+      }
     },
     {
       "name": "do_foward"
        "attributes": {
-        "distance": 2.2
+          "distance": 2.2
+      } 
     },
     }
   ]
