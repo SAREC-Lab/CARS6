@@ -29,7 +29,7 @@ class ThreePoint(smach.State):
 	dur = [rospy.Duration(2.0), rospy.Duration(1.0), rospy.Duration(2.0)]
     	rate = rospy.Rate(10)
     	
-	    for x in range(3):
+	for x in range(3):
             start = rospy.Time.now()
             drive = AckermannDrive(steering_angle=delta[x], speed=v[x])
             while rospy.Time.now() - start < dur[x]:
