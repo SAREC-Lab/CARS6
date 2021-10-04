@@ -1,6 +1,6 @@
 
 **Trello Board Link*
-https://trello.com/b/RqyrWWEP/assignment-4
+https://trello.com/invite/b/RqyrWWEP/1ed13915ed88eee01fbc8a5ddde9c389/assignment-4
 
 
 **Task Plan Specification**
