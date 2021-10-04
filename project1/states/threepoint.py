@@ -26,7 +26,7 @@ class ThreePoint(smach.State):
         rospy.loginfo("Running {} state".format(state_name))
         v = [ 1, -1, 1]
         delta= [0.9, -0.9, 0.45]
-	    dur = [rospy.Duration(2.0), rospy.Duration(1.0), rospy.Duration(2.0)]
+	dur = [rospy.Duration(2.0), rospy.Duration(1.0), rospy.Duration(2.0)]
     	rate = rospy.Rate(10)
     	
 	    for x in range(3):
