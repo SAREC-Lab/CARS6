@@ -16,10 +16,10 @@
       "name": "do_forward",
       "attributes": {
         "distance": 4.20
+      }
     },
     {
       "name": "do_threepoint"
-    },
     },
     {
       "name": "do_forward",
