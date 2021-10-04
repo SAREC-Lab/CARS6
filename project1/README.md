@@ -34,7 +34,7 @@ Trace Matrix 2:
 
 	D1, plan_parser.py 
 
-	D2,  Statemachine.py, forward.py, backward.py, turnL.py, turnR.py, circleL.py, circleR.py, plan.py, threepoint.py
+	D2, state_machine.py, forward.py, backward.py, turnL.py, turnR.py, circleL.py, circleR.py, plan.py, threepoint.py
 
 	D3, stop.py
 
