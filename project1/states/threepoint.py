@@ -8,8 +8,6 @@ from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
 from send_init_pos import send_init_pos
 
 # Define three point turn state
-
-
 class ThreePoint(smach.State):
     def __init__(self, pub_controls):
         smach.State.__init__(self,
@@ -18,7 +16,7 @@ class ThreePoint(smach.State):
         self.counter = 0
         self.pub_controls = pub_controls
 
-    def execute(self, userdata):
+    def execute(self, userdata): 
         # get state attributes
         state_name = userdata.curr_state["name"]
 
@@ -33,7 +31,7 @@ class ThreePoint(smach.State):
             start = rospy.Time.now()
             drive = AckermannDrive(steering_angle=delta[x], speed=v[x])
             while rospy.Time.now() - start < dur[x]:
-                self.pub_controls.publish(AckermannDriveStamped(drive=drive))
+                self.pub_controls.publish(AckermannDriveStamped(drive=drive)) # pulish drive command to car
                 rate.sleep()
             time.sleep(0.5)
 		
