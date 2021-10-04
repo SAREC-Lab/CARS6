@@ -33,9 +33,7 @@ class Backward(smach.State):
         while(rospy.Time.now() - start < dur):
             self.pub_controls.publish(AckermannDriveStamped(drive=drive))
             rate.sleep()
-           
-            #Publish the velocity
-            #velocity_publisher.publish(vel_msg)
+        
                
         time.sleep(1)
         
