@@ -13,13 +13,13 @@
       }
     },
     {
-      "name": "do_threepoint"
-    },
-    {
       "name": "do_forward",
       "attributes": {
-        "distance": 3.20
-      }
+        "distance": 4.20
+    },
+    {
+      "name": "do_threepoint"
+    },
     },
     {
       "name": "do_forward",
