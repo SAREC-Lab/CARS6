@@ -21,7 +21,6 @@ class ThreePoint(smach.State):
     def execute(self, userdata):
         # get state attributes
         state_name = userdata.curr_state["name"]
-        radius = userdata.curr_state["attributes"]["radius"]
 
         rospy.loginfo("Running {} state".format(state_name))
         v = [ 1, -1, 1]
