@@ -11,12 +11,11 @@ from send_init_pos import send_init_pos
 
 
 class ThreePoint(smach.State):
-    def __init__(self, pub_init_pos, pub_controls):
+    def __init__(self, pub_controls):
         smach.State.__init__(self,
                              outcomes=["do_plan"],
                              input_keys=["curr_state"])
         self.counter = 0
-        self.pub_init_pos = pub_init_pos
         self.pub_controls = pub_controls
 
     def execute(self, userdata):
@@ -25,3 +24,18 @@ class ThreePoint(smach.State):
         radius = userdata.curr_state["attributes"]["radius"]
 
         rospy.loginfo("Running {} state".format(state_name))
+        v = [ 1, -1, 1]
+        delta= [0.9, -0.9, 0.45]
+	    dur = [rospy.Duration(2.0), rospy.Duration(1.0), rospy.Duration(2.0)]
+    	rate = rospy.Rate(10)
+    	
+	    for x in range(3):
+            start = rospy.Time.now()
+            drive = AckermannDrive(steering_angle=delta[x], speed=v[x])
+            while rospy.Time.now() - start < dur[x]:
+                self.pub_controls.publish(AckermannDriveStamped(drive=drive))
+                rate.sleep()
+            time.sleep(0.5)
+		
+	
+        return 'do_plan'
