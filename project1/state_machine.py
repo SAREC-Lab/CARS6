@@ -10,6 +10,7 @@ from states.turnR import TurnR
 from states.forward import Forward
 from states.backward import Backward
 from states.stop import Stop
+from states.threepoint import ThreePoint
 
 
 def run_state_machine(pub_init_pos, pub_controls, plan):
@@ -24,7 +25,7 @@ def run_state_machine(pub_init_pos, pub_controls, plan):
         # add states to the container
         smach.StateMachine.add('Plan', Plan(pub_init_pos),
                                transitions={
-                                   "do_exit": "Stop", "do_circleL": "CircleL", "do_circleR": "CircleR",
+                                   "do_exit": "Stop", "do_circleL": "CircleL", "do_circleR": "CircleR", "do_threepoint": "ThreePoint",
                                    "do_turnL": "TurnL", "do_turnR": "TurnR", "do_forward": "Forward", "do_backward": "Backward"},
                                remapping={"plan": "plan", "curr_state": "curr_state", "plan_length": "plan_length"})
         smach.StateMachine.add("CircleL", CircleL( pub_controls),
@@ -43,6 +44,9 @@ def run_state_machine(pub_init_pos, pub_controls, plan):
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
         smach.StateMachine.add("Backward", Backward(pub_controls),
+                               transitions={"do_plan": "Plan"},
+                               remapping={"curr_state": "curr_state"})
+        smach.StateMachine.add("ThreePoint", ThreePoint(pub_controls),
                                transitions={"do_plan": "Plan"},
                                remapping={"curr_state": "curr_state"})
         smach.StateMachine.add("Stop", Stop(pub_controls),
