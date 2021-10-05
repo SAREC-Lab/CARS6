@@ -23,12 +23,12 @@ class CircleL(smach.State):
 
         rospy.loginfo("Running {} state".format(state_name))
 
-        l = 0.785
-        delta = math.asin(l / (2 * radius))
+        l = 0.785 # shortest radius that the car can traverse (length of car / 2).
+        delta = math.asin(l / (2 * radius)) # constant steering angle of the circle turn.
         velocity = 2.0  # default velocity
 
-        c = 2 * math.pi * radius
-        dur = rospy.Duration((c / velocity))
+        c = 2 * math.pi * radius # circumfrence of the circle to be traversed.
+        dur = rospy.Duration((c / velocity)) # duration the circle turn should take.
         rate = rospy.Rate(10)
 
         drive = AckermannDrive(steering_angle=delta, speed=velocity)
