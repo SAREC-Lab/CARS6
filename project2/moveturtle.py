@@ -1,6 +1,8 @@
+import math
 import rospy
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
+
 
 class Turtlebot():
 
@@ -13,6 +15,55 @@ class Turtlebot():
         self.rate = rospy.Rate(10)
 
         # Register publishers and subscribers
-        self.publisher = rospy.Publisher(self.namespace + '/cmd_vel', Twist, queue_size=1)
+        self.publisher = rospy.Publisher(
+            self.namespace + '/cmd_vel', Twist, queue_size=1)
 
         rospy.on_shutdown(self.shutdown)
+
+    # move the turtlebot forward at a given speed.
+    def moveForward(self, speed):
+        move_cmd = Twist()
+        move_cmd.linear.x = speed
+        self.publisher.publish(move_cmd)
+
+    # turn the turtlebot left.
+    def turnLeft(self):
+        move_cmd = Twist()
+        turn_angle = 90
+        move_cmd.angular.z = math.radians(turn_angle / 4)
+        while (turn_angle % 360) > self.angle and not rospy.is_shutdown():
+            self.publisher.publish(move_cmd)
+            self.rate.sleep()
+
+        move_cmd = Twist()
+        self.publisher.publish(move_cmd)
+
+    # turn the turtlebot right.
+    def turnRight(self):
+        move_cmd = Twist()
+        turn_angle = 90
+        move_cmd.angular.z = -math.radians(turn_angle / 4)
+        start_angle = self.angle
+        final_angle = ((start_angle - turn_angle) + 360) % 360
+        while self.angle > 0 and self.angle < final_angle and not rospy.is_shutdown():
+            self.publisher.publish(move_cmd)
+            self.rate.sleep()
+        while self.angle > final_angle and not rospy.is_shutdown():
+            self.publisher.publish(move_cmd)
+            self.rate.sleep()
+
+        move_cmd = Twist()
+        self.publisher.publish(move_cmd)
+
+    # get distance between the turtlebot and objects surrounding it.
+    # return value is in the form: [left, front, right]
+    def getObstacles(self):
+        scan = rospy.wait_for_message(self.namespace + "/scan", LaserScan)
+        return [scan.ranges[719], scan.ranges[0], scan.ranges[360]]
+
+    # stop and shutdown the turtlebot.
+    def shutdown(self):
+        move_cmd = Twist()
+        self.publisher.publish(move_cmd)
+        rospy.loginfo("Stopping and shutting down ...")
+        exit(0)
