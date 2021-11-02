@@ -61,10 +61,19 @@ class Turtlebot():
         move_cmd = Twist()
         turn_angle = 90
         move_cmd.angular.z = math.radians(turn_angle / 4)
-        while (turn_angle % 360) > self.angle and not rospy.is_shutdown():
-            self.publisher.publish(move_cmd)
-            self.rate.sleep()
-
+        start_angle = self.angle
+        final_angle = (start_angle + turn_angle) % 360
+        if self.angle < final_angle:
+            while final_angle > self.angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
+        elif self.angle > final_angle:
+            while self.angle > 0 and self.angle > final_angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
+            while self.angle < final_angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
         move_cmd = Twist()
         self.publisher.publish(move_cmd)
 
