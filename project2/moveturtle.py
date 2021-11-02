@@ -21,9 +21,9 @@ class Turtlebot():
 
         # Register publishers and subscribers
         self.publisher = rospy.Publisher(
-            self.namespace + '/cmd_vel', Twist, queue_size=1)
+            '/cmd_vel', Twist, queue_size=1)
         self.sub_odom = rospy.Subscriber(
-            self.namespace + '/odom', Odometry, self.odometryCallback)
+            '/odom', Odometry, self.odometryCallback)
         self.laser_scanner = rospy.Subscriber(
             '/scan', LaserScan, self.laserScannerCallback)
 
@@ -50,7 +50,7 @@ class Turtlebot():
         return self.scan_output
 
     # move the turtlebot forward at a given speed.
-    def moveForward(self, speed):
+    def moveForward(self, speed=0.3):
         move_cmd = Twist()
         move_cmd.linear.x = speed
         self.publisher.publish(move_cmd)
@@ -79,18 +79,23 @@ class Turtlebot():
 
     # turn the turtlebot right.
     def turnRight(self):
+        rospy.loginfo("Attempting to run turnRight")
         move_cmd = Twist()
         turn_angle = 90
         move_cmd.angular.z = -math.radians(turn_angle / 4)
         start_angle = self.angle
         final_angle = ((start_angle - turn_angle) + 360) % 360
-        while self.angle > 0 and self.angle < final_angle and not rospy.is_shutdown():
-            self.publisher.publish(move_cmd)
-            self.rate.sleep()
-        while self.angle > final_angle and not rospy.is_shutdown():
-            self.publisher.publish(move_cmd)
-            self.rate.sleep()
-
+        if self.angle > final_angle:
+            while final_angle < self.angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
+        elif self.angle < final_angle:
+            while self.angle > 0 and self.angle < final_angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
+            while self.angle > final_angle and not rospy.is_shutdown():
+                self.publisher.publish(move_cmd)
+                self.rate.sleep()
         move_cmd = Twist()
         self.publisher.publish(move_cmd)
 

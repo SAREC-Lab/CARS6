@@ -3,6 +3,7 @@
 # Import libraries
 import rospy
 from moveturtle import Turtlebot
+from maze_navigator import navigate
 
 
 # Run bot to solve the maze.
@@ -10,12 +11,7 @@ def runTurtleBot():
     rospy.init_node('squishy_turtlebot3')
     turtleBot = Turtlebot(namespace="squishy")
 
-    while not rospy.is_shutdown():
-        obstacles = turtleBot.getObstacles()
-        rospy.loginfo("Testing obstacles: {}".format(obstacles))
-
-        rospy.loginfo("Testing turn")
-        turtleBot.turnLeft()
+    navigate(turtleBot)
 
     rospy.spin()
 
