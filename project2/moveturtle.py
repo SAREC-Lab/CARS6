@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import math
+import time
 import rospy
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
@@ -40,7 +41,7 @@ class Turtlebot():
 
     # laser scanner callback function.
     def laserScannerCallback(self, msg):
-        output = [msg.ranges[359], msg.ranges[0], msg.ranges[180]]
+        output = [msg.ranges[90], msg.ranges[0], msg.ranges[270]]
         # rospy.loginfo(output)
         self.scan_output = output
 
@@ -55,9 +56,16 @@ class Turtlebot():
         move_cmd.linear.x = speed
         self.publisher.publish(move_cmd)
 
+    # move forward for x seconds blindly.
+    def blindForward(self, duration=1):
+        t_end = time.time() + 1 * duration
+        while time.time() < t_end:
+            self.moveForward()
+
     # turn the turtlebot left.
     def turnLeft(self):
         rospy.loginfo("Attempting to run turnLeft")
+        self.blindForward()
         move_cmd = Twist()
         turn_angle = 90
         move_cmd.angular.z = math.radians(turn_angle / 4)
@@ -74,12 +82,14 @@ class Turtlebot():
             while self.angle < final_angle and not rospy.is_shutdown():
                 self.publisher.publish(move_cmd)
                 self.rate.sleep()
+        self.blindForward()
         move_cmd = Twist()
         self.publisher.publish(move_cmd)
 
     # turn the turtlebot right.
     def turnRight(self):
         rospy.loginfo("Attempting to run turnRight")
+        self.blindForward()
         move_cmd = Twist()
         turn_angle = 90
         move_cmd.angular.z = -math.radians(turn_angle / 4)
@@ -96,6 +106,7 @@ class Turtlebot():
             while self.angle > final_angle and not rospy.is_shutdown():
                 self.publisher.publish(move_cmd)
                 self.rate.sleep()
+        self.blindForward()
         move_cmd = Twist()
         self.publisher.publish(move_cmd)
 
