@@ -6,7 +6,7 @@ from moveturtle import Turtlebot
 from maze_navigator import navigate
 
 
-# Run bot to solve the maze.
+# Run bot
 def runTurtleBot():
     rospy.init_node('squishy_turtlebot3')
     turtleBot = Turtlebot(namespace="squishy")
