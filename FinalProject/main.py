@@ -10,10 +10,11 @@ from maze_navigator import navigate
 #Add states to library
 from ChaCha.forward import Forward
 from ChaCha.backward import Backward
-for ChaCha.circleL import CircleL
-for ChaCha.circleR import CircleR
-for ChaCha.turnL import TurnL
-for ChaCha.turnR import TurnR
+form ChaCha.circle import Circle
+form ChaCha.clap import Clap
+from ChaCha.chacha import Chacha
+form ChaCha.turnL import TurnL
+form ChaCha.turnR import TurnR
 
 
 # define state Stop
@@ -40,20 +41,22 @@ def runTurtleBot():
     with sm:
         # Add states to the container
         smach.StateMachine.add('Plan', Plan(), 
-                               transitions={'do_forward':'Forward', 'do_backward': 'Backward', 'do_circleL':'CircleL', 'do_circleR': 'CirlceR', 
-					    'do_turnL':'TurnL', 'do_turnR':'TurnR', 'do_threepoint': 'ThreePoint', 'do_exit':'Stop'})
+                               transitions={'do_forward':'Forward', 'do_backward': 'Backward', 'do_circle':'Circle', 
+					    'do_turnL':'TurnL', 'do_turnR':'TurnR','do_clap':'Clap','do_chacha':'Chacha','do_exit':'Stop'})
         smach.StateMachine.add('Forward', Forward(), 
                                transitions={'do_plan':'Plan'})
         smach.StateMachine.add('Backward', Backward(), 
                                 transitions={'do_plan':'Plan'})
-        smach.StateMachine.add('CircleL', CircleL(), 
-                               transitions={'do_plan':'Plan'})
-        smach.StateMachine.add('CircleR', CircleR(), 
+        smach.StateMachine.add('Circle', Circle(), 
                                transitions={'do_plan':'Plan'})
         smach.StateMachine.add('TurnL', TurnL(), 
                                transitions={'do_plan':'Plan'})
         smach.StateMachine.add('TurnR', TurnR(), 
                                transitions={'do_plan':'Plan'})
+	smach.StateMachine.add('Clap', Clap(), 
+                               transitions={'do_clap':'Clap'})
+	smach.StateMachine.add('Chacha', Chacha(), 
+                               transitions={'do_chacha':'Chacha'})
         smach.StateMachine.add('Stop', Stop(), 
                                transitions={'do_exit':'do_exit'})
 
