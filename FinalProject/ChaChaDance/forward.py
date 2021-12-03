@@ -4,12 +4,10 @@
 import rospy
 import smach
 import time
-import math
-from ackermann_msgs.msg import AckermannDrive, AckermannDriveStamped
+from geometry_msgs.msg import Twist
+
 
 # Define circle state
-
-
 class Forward(smach.State):
     def __init__(self, pub_controls):
         smach.State.__init__(self,
@@ -18,15 +16,20 @@ class Forward(smach.State):
         self.counter = 0
         self.pub_controls = pub_controls
 
-
     def execute(self, userdata):
         # get state attributes
         state_name = userdata.curr_state["name"]
 
         rospy.loginfo("Running {} state".format(state_name))
 
+        dur = rospy.Duration(2.8 / (3.0))
+        rate = rospy.Rate(10)
+        start = rospy.Time.now()
+
         while rospy.Time.now() - start < dur:
-            self.pub_controls.publish(AckermannDriveStamped(drive=drive))
+            move_cmd = Twist()
+            move_cmd.linear.x = 3.0
+            self.pub_controls.publish(move_cmd)
             rate.sleep()
 
         time.sleep(1)
