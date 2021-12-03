@@ -8,13 +8,14 @@ from geometry_msgs.msg import Twist
 from moveturtle import Turtlebot
 from maze_navigator import navigate
 #Add states to library
-from ChaCha.forward import Forward
-from ChaCha.backward import Backward
-form ChaCha.circle import Circle
-form ChaCha.clap import Clap
-from ChaCha.chacha import Chacha
-form ChaCha.turnL import TurnL
-form ChaCha.turnR import TurnR
+from ChaChaDance.forward import Forward
+from ChaChaDance.backward import Backward
+from ChaChaDance.circle import Circle
+from ChaChaDance.clap import Clap
+from ChaChaDance.chacha import Chacha
+from ChaChaDance.turnL import TurnL
+from ChaChaDance.turnR import TurnR
+from ChaChaDance.plan import Plan
 
 
 # define state Stop

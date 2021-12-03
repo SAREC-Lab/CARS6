@@ -19,26 +19,32 @@ class Circle(smach.State):
         self.pub_controls = pub_controls
 
     def execute(self, userdata):
-        # get state attributes
-        state_name = userdata.curr_state["name"]
-        radius = userdata.curr_state["attributes"]["radius"]
+        rospy.loginfo('The turtle is turning in a circle')
+        velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
 
-        rospy.loginfo("Running {} state".format(state_name))
-        #Circling right
-        l = 0.785 # shortest radius that the car can traverse (length of car / 2).
-        delta = -1 * math.asin(l / (2 * radius)) # constant steering angle of the circle turn.
-        velocity = 2.0  # default velocity
+        # Set Twist to circle
+        vel_msg = Twist()
+        vel_msg.linear.x=5
+        vel_msg.linear.y = 0
+        vel_msg.linear.z = 0
+        vel_msg.angular.x = 0
+        vel_msg.angular.y = 0
+        vel_msg.angular.z = 5
 
-        c = 2 * math.pi * radius # circumfrence of the circle to be traversed.
-        dur = rospy.Duration((c / velocity)) # duration the circle turn should take.
-        rate = rospy.Rate(10)
+        # Setup time to twist
+        t0=rospy.Time.now().to_sec()
+        t1=rospy.Time.now().to_sec()
 
-        drive = AckermannDrive(steering_angle=delta, speed=velocity)
-        start = rospy.Time.now()
-        while rospy.Time.now() - start < dur:
-            self.pub_controls.publish(AckermannDriveStamped(drive=drive))
-            rate.sleep()
+        while(t1-t0<3):
+            #Publish the velocity
+            velocity_publisher.publish(vel_msg)
+            t1=rospy.Time.now().to_sec()          
+         
+        #After the loop, stops the robot
+        vel_msg.angular.z = 0
+        vel_msg.linear.x = 0
+        #Force the robot to stop
+        velocity_publisher.publish(vel_msg)
 
-        time.sleep(1)
 
-        return "do_plan"
+        return 'do_plan'
