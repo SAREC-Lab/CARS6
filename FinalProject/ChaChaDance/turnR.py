@@ -16,29 +16,29 @@ class TurnR(smach.State):
 
     def execute(self, userdata):
 		rospy.loginfo('The turtle is twisting right')
-        velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+        move_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10) #might need to add turtle name
 
         # Set Twist to twist right
-        vel_msg = Twist()
-        vel_msg.linear.x=0
-        vel_msg.linear.y = 0
-        vel_msg.linear.z = 0
-        vel_msg.angular.x = 0
-        vel_msg.angular.y = 0
-        vel_msg.angular.z = -10
+        move_cmd = Twist()
+        move_cmd.linear.x=0
+        move_cmd.linear.y = 0
+        move_cmd.linear.z = 0
+        move_cmd.angular.x = 0
+        move_cmd.angular.y = 0
+        move_cmd.angular.z = -10
 
         # Setup time to twist
         t0=rospy.Time.now().to_sec()
         t1=rospy.Time.now().to_sec()
 
         while(t1-t0<3):
-            #Publish the velocity
-            velocity_publisher.publish(vel_msg)
+            #Publish the move
+            move_publisher.publish(move_cmd)
             t1=rospy.Time.now().to_sec()
 
 		#After the loop, stops the robot
-        vel_msg.angular.z = 0
+        move_cmd.angular.z = 0
         #Force the robot to stop
-        velocity_publisher.publish(vel_msg)
+        move_publisher.publish(move_cmd)
 
         return 'do_plan'
