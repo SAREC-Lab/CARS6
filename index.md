@@ -1,6 +1,7 @@
 ## Team Squushy
 
-You can use the [editor on GitHub](https://github.com/SAREC-Lab/CARS6/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+To right! Take it back now ya'll... 
+Time to make a turtlebot dance!!
 
 ### Project Vision Statement
 
@@ -38,7 +39,9 @@ Trigger: Turtlebot receives a command to do the cha cha
 
 ## Simple Architecture Design
 ## System Level Design
-
+## Testing 
+## Implementation
+## Results and Demonstration
 
 **Bold** and _Italic_ and `Code` text
 
