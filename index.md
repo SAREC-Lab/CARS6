@@ -38,6 +38,7 @@ Trigger: Turtlebot receives a command to do the cha cha
 1. In step 2, instead of voice command, user manually types command
 
 ## Simple Architecture Design
+![Architecture](gh-pages/highlevel.jpeg)
 ## System Level Design
 ## Testing 
 ## Implementation
