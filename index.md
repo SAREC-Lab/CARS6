@@ -40,8 +40,9 @@ Trigger: Turtlebot receives a command to do the cha cha
 ## Simple Architecture Design
 ![Architecture](gh-pages/highlevel.jpeg)
 ## System Level Design
-## Testing 
-## Implementation
+![Data Flow](gh-pages/dataflow.jpeg)
+## Testing and Implementation
+To begin to implement our 
 ## Results and Demonstration
 
 **Bold** and _Italic_ and `Code` text
