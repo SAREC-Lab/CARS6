@@ -5,7 +5,7 @@ Time to make a turtlebot dance!!
 
 ### Project Vision Statement
 
-The goal of our project is to use voice recognition to make our turtlebot do the Cha Cha Slide. We will create a library of phrases from the song for our turtlebot to react and dance along to, following the steps choreographed by DJ Casper. To do this we will use the Pocketsphinx python library which allows for the voice recognition software.
+The goal of our project is to use voice recognition to make our turtlebot do the Cha Cha Slide. We will create a library of phrases from the song for our turtlebot to react and dance along to, following the steps choreographed by DJ Casper. To do this we will use the Pocketsphinx python library which allows for the voice recognition software. We will 
 
 # Use Case 
 **Name**: Turtle cha cha
