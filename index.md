@@ -48,7 +48,7 @@ Trigger: Turtlebot receives a command to do the cha cha
 1. In step 2, instead of voice command, user manually types command
 
 ## How-to Make your Turtlebot Dance
-1. Open [STT Interface] (https://squushy.herokuapp.com/)
+1. Open [STT Interface](https://squushy.herokuapp.com/)
 2. Play Cha-Cha Slide by Dj Casper 
 3. Click the Start/Stop button
 4. In the terminal on your computer run 'roscore'
