@@ -1,4 +1,4 @@
-
+## Team Squushy 
 To right! Take it back now ya'll... 
 Time to make a turtlebot dance!!
 
@@ -9,6 +9,7 @@ The goal of our project is to use voice recognition to make our turtlebot do the
 ## Glossary
 
 **Speech to Text (STT)** - technology that enables human speech to be converted automatically into text.
+
 
 **SMACH State Machine** -  SMACH is a task-level architecture for rapidly creating complex robot behavior. At its core, SMACH is a ROS-independent Python library to build hierarchical state machines.
 
