@@ -9,7 +9,8 @@ The goal of our project is to use voice recognition to make our turtlebot do the
 
 ## Glossary
 
-**Speech to Text (STT)**
+**Speech to Text (STT)** - technology that enables human speech to be converted automatically into text.
+**SMACH State Machine** -  SMACH is a task-level architecture for rapidly creating complex robot behavior. At its core, SMACH is a ROS-independent Python library to build hierarchical state machines.
 
 ## Design Process
 To ensure the team worked efficiently and timely, we decided to use the SCRUM design process for this project. Using a Trello Board (LINK TO BOARD) we were able to organize the project into short 'sprints' for each team member. Due to the fact that this class only met once a week, it was east to assign each member their individual work for the week and what the goals for each sprint were. The benefits to using SCRUM managment for this project included, helping the team complete project deliverables quickly and efficiently, ensuring effective use of time, large projects are divided into easily manageable sprints, developments are coded and tested during the sprint review, and that SCRUM works well for fast-moving development projects. 
@@ -56,18 +57,32 @@ Trigger: Turtlebot receives a command to do the cha cha
 8. Watch as the turtlebot dance
 9. Please note that the connect between the terminal and turtlebot will close after 30 seconds of silence, and steps 4-6 will have to be repeated.
 
-## Specific hazards or quality concerns that you addressed.
+## Risks and Quality Concerns
+In hopes of producing a well thought out and well implemented project we needed to address potential risks and quality concerns. One risk we ran into early on was back ground noise negatively impacting our STT software. It distorted the words and in turn nothing was read in correctly. In addition to background noise, microphone quality also influenced the quality of the STT output. To remedy these two issues, we found an isolated vocal version of the song and switched to using our personal computers which have good quality microphones. 
+Additionally, a quality concern for the project was that we are reading in a lot of lyrics at once and the code had to be efficient enough to process and perform accordingly. Since the song is not just saying the commands, but also including lyrics in between, we needed to make sure we were able to filter out unwanted words from our code. We created an additional cleaning program that took the STT and looked for key word to relate to our state functions. For example one line of the song is "Take it back now y'all". When this line is read in adn filtered it will look for a word corresponding to one of the pre-existing states, in this case the word 'back' is found and the robot knows to run the state 'backward.' 
 
 
-
-
-## Simple Architecture Design
+## Architecture Diagram
+An architectural diagram is a diagram of the overall outline of the software system and the relationships, constraints, and boundaries between components. It is an important tool as it provides an overall view of the physical deployment of the software system. Here is a simple diagram for our software system:
 ![Architecture](CARS6/blob/gh-pages/highlevel.jpeg)
-## System Level Design
-![Data Flow](gh-pages/dataflow.jpeg)
-## Testing and Implementation
-To begin to implement our 
+
+## Data Flow Diagram 
+In addition to an architecture diagram we can visualize the flow of data within our programs with a Data Flow Diagram. This helps us to understand the functioning and the limits of a system. The data flow for our project is as follows: 
+![Data Flow](CARS6/blob/gh-pages/dataflow.jpeg)
+
+## Implementation and Testing
+To begin to implement our program it was important to test at every step. Testing is a crucial component of the programming process as well as an element of SCRUM. To begin our project we set up our SMACH state machine and defined each of the states we were going to need for each dance move. The song lists off several dance moves for the listener to follow along to. Some of these moves include 'move to the left' or 'cha cha real-smooth.' We decided on creating six different states for our turtle bot to dance along to the music. Using a similar model to Project 2, we wrote code for each of these functions and tested them individually. After making sure each function worked on their own, we compiled and our state machine and used several pre-written text files to test random combinations of states together. 
+
+**SOCKET EXPLANATION**
+
+Next we needed to implement our STT software. 
+
+
 ## Results and Demonstration
+
+
+
+
 
 **Bold** and _Italic_ and `Code` text
 
