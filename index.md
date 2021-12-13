@@ -1,4 +1,3 @@
-## Team Squushy
 
 To right! Take it back now ya'll... 
 Time to make a turtlebot dance!!
