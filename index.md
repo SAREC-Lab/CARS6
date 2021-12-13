@@ -61,6 +61,7 @@ Trigger: Turtlebot receives a command to do the cha cha
 ## Risks and Quality Concerns
 In hopes of producing a well thought out and well implemented project we needed to address potential risks and quality concerns. One risk we ran into early on was back ground noise negatively impacting our STT software. It distorted the words and in turn nothing was read in correctly. In addition to background noise, microphone quality also influenced the quality of the STT output. To remedy these two issues, we found an isolated vocal version of the song and switched to using our personal computers which have good quality microphones. 
 
+
 Additionally, a quality concern for the project was that we are reading in a lot of lyrics at once and the code had to be efficient enough to process and perform accordingly. Since the song is not just saying the commands, but also including lyrics in between, we needed to make sure we were able to filter out unwanted words from our code. We created an additional cleaning program that took the STT and looked for key word to relate to our state functions. For example one line of the song is "Take it back now y'all". When this line is read in adn filtered it will look for a word corresponding to one of the pre-existing states, in this case the word 'back' is found and the robot knows to run the state 'backward.' 
 
 
