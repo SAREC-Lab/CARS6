@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="final_project" type="main.py" name="final_project" output="screen">
+    </node>
+</launch>
