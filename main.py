@@ -19,22 +19,10 @@ from ChaChaDance.turnL import TurnL
 from ChaChaDance.turnR import TurnR
 from ChaChaDance.circle import Circle
 
-handling_msg = False
-
 def on_message(ws, message):
-    global handling_msg
-
-    if handling_msg:
-        return
-
-    handling_msg = True
-
     plan = get_filtered_plans(message)
     if plan:
         runTurtleBot(plan)
-
-    handling_msg = False
-
 
 def on_error(ws, error):
     print(error)
@@ -105,4 +93,3 @@ if __name__ == '__main__':
     print(plan)
 
     read_cha_cha()
-    #runTurtleBot(plan)
