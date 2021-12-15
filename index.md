@@ -78,7 +78,7 @@ To begin to implement our program it was important to test at every step. Testin
 
 **SOCKET EXPLANATION**
 
-Next we needed to implement our STT software. 
+Given that the Raspberry Pi on the turtlebot is not powerful enough to both run the turtlebot and a speech to text program, we decided to build a Node JS application that runs a speech to text program and emits the text it recevies through a websocket server. The turtlebot then connects to this Node JS application as a websocket client therefore enabling it to receive the text parsed from the song in near realtime. The Node JS application (websocket server) is hosted on Heroku. 
 
 
 ## Results and Demonstration
