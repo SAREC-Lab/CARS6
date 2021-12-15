@@ -7,7 +7,7 @@ Time to make a turtlebot dance!!
 
 ### Project Vision Statement
 
-The goal of our project is to use voice recognition to make our turtlebot do the Cha Cha Slide. We will create a library of phrases from the song for our turtlebot to react and dance along to, following the steps choreographed by DJ Casper. To do this we will use a python library which allows for the voice recognition software. We wanted to improve a simple state machine to be able to take in audio, convert it to text using Speech to Text, and then determine which state to use based on the words said. This will give the illusion that the turtlebot is dancing along with the song as it plays. 
+The goal of our project is to use voice recognition to make our turtlebot do the Cha Cha Slide. We will create a list of phrases from the song for our turtlebot to react and dance along to. To do this we will use a websocket server to convert speech to text while playing the song. We wanted to improve a simple state machine to be able to take in audio, convert it to text using Speech to Text, and then determine which state to use based on the words said. This will give the illusion that the turtlebot is dancing along with the song as it plays. 
 
 ## Glossary
 
