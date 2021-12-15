@@ -71,7 +71,7 @@ An architectural diagram is a diagram of the overall outline of the software sys
 
 ## Data Flow Diagram 
 In addition to an architecture diagram we can visualize the flow of data within our programs with a Data Flow Diagram. This helps us to understand the functioning and the limits of a system. The data flow for our project is as follows: 
-![Data Flow](CARS6/blob/gh-pages/dataflow.jpeg)
+![Data Flow](./dataflow.jpeg)
 
 ## Implementation and Testing
 To begin to implement our program it was important to test at every step. Testing is a crucial component of the programming process as well as an element of SCRUM. To begin our project we set up our SMACH state machine and defined each of the states we were going to need for each dance move. The song lists off several dance moves for the listener to follow along to. Some of these moves include 'move to the left' or 'cha cha real-smooth.' We decided on creating six different states for our turtle bot to dance along to the music. Using a similar model to Project 2, we wrote code for each of these functions and tested them individually. After making sure each function worked on their own, we compiled and our state machine and used several pre-written text files to test random combinations of states together. 
