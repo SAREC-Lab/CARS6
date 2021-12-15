@@ -84,7 +84,8 @@ Given that the Raspberry Pi on the turtlebot is not powerful enough to both run 
 After testing our code we were happy with the results. Below are videos of our turtlebot demonstrating a few different combinations of dance moves. 
 
 Turtlebot doing the Cha Cha Slide (using isolated vocals)
-(https://youtu.be/Y3bkboiANPM "Cha Cha Slide")
+
+https://youtu.be/Y3bkboiANPM 
 
 
 
