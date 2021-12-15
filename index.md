@@ -93,7 +93,7 @@ Turtlebot doing the Cha Cha Slide (using isolated vocals)
 [Cha Cha Dance Demo](https://youtu.be/Y3bkboiANPM)
 
 Turtlebot doing dance to each isolated command
-[Cha Cha Commands Demo]()
+[Cha Cha Commands Demo](https://youtu.be/z_qdPdiTSfk)
 
 
 
