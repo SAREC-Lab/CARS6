@@ -51,9 +51,9 @@ Trigger: Turtlebot receives a command to do the cha cha
 1. Open [STT Interface](https://squushy.herokuapp.com/)
 2. Play Cha-Cha Slide by Dj Casper 
 3. Click the Start/Stop button
-4. In the terminal on your computer run 'roscore'
-5. Open a new window and cd to 'catkin_ws/src' 
-6. Run the line 'roslaunch turtlebot3_bringup turtlbot3_robot.launch'
+4. In the terminal on your computer run  `roscore`
+5. Open a new window and cd to `catkin_ws/src` 
+6. Run the line `roslaunch turtlebot3_bringup turtlbot3_robot.launch`
 7. The turtlbot will read 10 words every ~20ms 
 8. Watch as the turtlebot dance
 9. Please note that the connect between the terminal and turtlebot will close after 30 seconds of silence, and steps 4-6 will have to be repeated.
