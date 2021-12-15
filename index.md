@@ -1,6 +1,7 @@
 ## Team Squushy 
 To right! Take it back now ya'll... 
 Time to make a turtlebot dance!!
+[Github Repository](https://github.com/SAREC-Lab/CARS6/tree/FinalProject)
 
 ### Project Vision Statement
 
@@ -87,7 +88,7 @@ After testing our code we were happy with the results. Below are videos of our t
 
 Turtlebot doing the Cha Cha Slide (using isolated vocals)
 
-https://youtu.be/Y3bkboiANPM 
+[Cha Cha Dance Demo](https://youtu.be/Y3bkboiANPM)
 
 
 
