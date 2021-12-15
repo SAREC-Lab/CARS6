@@ -68,10 +68,12 @@ Additionally, a quality concern for the project was that we are reading in a lot
 
 ## Architecture Diagram
 An architectural diagram is a diagram of the overall outline of the software system and the relationships, constraints, and boundaries between components. It is an important tool as it provides an overall view of the physical deployment of the software system. Here is a simple diagram for our software system:
+
 ![Architecture](./archdiag.jpeg)
 
 ## Data Flow Diagram 
 In addition to an architecture diagram we can visualize the flow of data within our programs with a Data Flow Diagram. This helps us to understand the functioning and the limits of a system. The data flow for our project is as follows: 
+
 ![Data Flow](./dataflow.jpeg)
 
 ## Implementation and Testing
