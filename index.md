@@ -57,6 +57,7 @@ Trigger: Turtlebot receives a command to do the cha cha
 7. The turtlbot will read 10 words every ~20ms 
 8. Watch as the turtlebot dance
 9. Please note that the connect between the terminal and turtlebot will close after 30 seconds of silence, and steps 4-6 will have to be repeated.
+10. To run tests run `python -m pytest`
 
 ## Risks and Quality Concerns
 In hopes of producing a well thought out and well implemented project we needed to address potential risks and quality concerns. One risk we ran into early on was back ground noise negatively impacting our STT software. It distorted the words and in turn nothing was read in correctly. In addition to background noise, microphone quality also influenced the quality of the STT output. To remedy these two issues, we found an isolated vocal version of the song and switched to using our personal computers which have good quality microphones. 
@@ -67,7 +68,7 @@ Additionally, a quality concern for the project was that we are reading in a lot
 
 ## Architecture Diagram
 An architectural diagram is a diagram of the overall outline of the software system and the relationships, constraints, and boundaries between components. It is an important tool as it provides an overall view of the physical deployment of the software system. Here is a simple diagram for our software system:
-![Architecture](./highlevel.jpeg)
+![Architecture](./archdiag.jpeg)
 
 ## Data Flow Diagram 
 In addition to an architecture diagram we can visualize the flow of data within our programs with a Data Flow Diagram. This helps us to understand the functioning and the limits of a system. The data flow for our project is as follows: 
@@ -76,22 +77,14 @@ In addition to an architecture diagram we can visualize the flow of data within 
 ## Implementation and Testing
 To begin to implement our program it was important to test at every step. Testing is a crucial component of the programming process as well as an element of SCRUM. To begin our project we set up our SMACH state machine and defined each of the states we were going to need for each dance move. The song lists off several dance moves for the listener to follow along to. Some of these moves include 'move to the left' or 'cha cha real-smooth.' We decided on creating six different states for our turtle bot to dance along to the music. Using a similar model to Project 2, we wrote code for each of these functions and tested them individually. After making sure each function worked on their own, we compiled and our state machine and used several pre-written text files to test random combinations of states together. 
 
-**SOCKET EXPLANATION**
-
 Given that the Raspberry Pi on the turtlebot is not powerful enough to both run the turtlebot and a speech to text program, we decided to build a Node JS application that runs a speech to text program and emits the text it recevies through a websocket server. The turtlebot then connects to this Node JS application as a websocket client therefore enabling it to receive the text parsed from the song in near realtime. The Node JS application (websocket server) is hosted on Heroku. 
 
 
 ## Results and Demonstration
+After testing our code we were happy with the results. Below are videos of our turtlebot demonstrating a few different combinations of dance moves. 
 
 
 
 
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-
-
-
-
-
+## Errata and Improvements 
+Due to the speed of the song the turtlebot only picks up the first one when they are in sucession. For example, one line of the song is 'clap, clap, clap your hands' and the turtlebot will only do the clap move once. There is also a bit of a lag since it is processing each word it takes in looking for a key word and then has to process that before checking for the next one. This is probably due to the fact that the Raspberry Pi and turtlebot aren't very powerful and just don't preform or process at a speed that is efficient enough work that fast. Additionally, the song quality isn't the best and the echo in each line could cause some issues with the speech to text. We could improve this project by including more dance moves to make the dance more fluid. 
